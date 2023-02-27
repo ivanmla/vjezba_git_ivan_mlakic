@@ -1,0 +1,270 @@
+Git Hub - najveći i najbolji
+mogućnost private i public repoa
+mogućnost editiranja onlina - u Code pogledu pritiskom na točku otvatra se web VS Code
+vide se promjene
+Readme.md file: 
+    # nasllov
+    automatski se prikazuje kad se projekt otvori u gitu
+
+Git Lab
+Bit bucket
+
+
+Instalacija: git za Windows
+provjera da li je git instaliran: 
+git --version
+
+VIM:
+vježba i objašnjenje:
+ navigae to desktop
+ create new file
+comanda 
+vim fileName.js
+-- editor kao i VS Code
+kliknuti tipku i za biti u modu insert
+ESC izbacuje iz i moda
+:q je naredba za izać
+wq save and exit
+
+git bash u windowsima:
+desni klik - open git bash here
+git --version
+ako se ispiše versija, ok, git onstaliran
+ideja git basha: na windowsima se koristi cmd prompt,
+većina servera (99%) su linux - koji ima iste naredbe kao i shell od mac
+git bash nam omogućuje da koristimo unix naredbe
+npr, ls vs dir.
+
+cd Documents - change directory
+mkdir vjezba1 - make directory
+ls - vjezba1 vidimo kreiran folder
+-- što snači znati linux naredbe - ovo iznad i ispod što će se upisivati u git bash
+
+Shell vs Terminal
+Terminal - przor / program / aplikacija u koji se mogu upisivati naredbe 
+Shell - program koji prima tekstualne naredbe. Program koji je pokrenut u nekakvo okviru, a taj program zovemo Terminal
+zsh je shell u macu
+
+----
+naredba git init - kreira folder .git
+u koji git sprema sve što radimo
+(brisanje komanda: izaći u folder iznad, 
+rm -rfv .git) remove folder
+naredba 
+clear - čisti ekran
+cd.. - change dir UP
+pwd - pokacuje gdje se nalazimo u directoryju
+
+----
+Konfiguracija GITa
+kao i kad napravimo npm init - kreira se config gile
+kad napravimo git init - dobijemo master (kasnije o tome) i hrpa foldera i filova, ali znam oda je uspješno inicijailziran repo
+
+globalne postavke, naredba :
+git config
+
+ovdje možemo postaviti svoje podatke kako bi git znao tko sprema to
+git config --global user.name "Ivan Horvat"
+git config --global user.email "ivan.horvat@gmail.com"
+
+kako provjeriti da li je već ranijeuneseno: 
+git config --list
+kod mene trenutno: 
+user.email=ivan.mlakic@boosterfuels.com
+user.name=ivanmlakic
+
+-- global mijenjati ili nastaviti raditi na priv kompu??
+inicijalizirati repo u priv kompu
+
+----
+još naredbi:
+tree
+touch index.js - ne radi na windowsi
+
+
+_____
+Priv komp:
+user.name=ivanmla
+user.email=ivan0mlakic@gmail.com
+
+još naredbi:
+touch index.jx - kreira novi file
+cat index.js
+code index.js - otvara file u codeu
+
+CODE naredba radi ako se postavi prilikom instalacije VD Codea - postavi Code kao envaronmentakl varijablu:
+terminali i svi crni ekrani se odnose na VS Code
+
+----
+GIT: index.js file u Vjezba1 folderu, git inicijaliziran
+1. Lokalno
+2.Kasnije na gitHub
+3. dio svakodnevno korištenje
+
+1. Working Directory: 
+    folder vjezba1  
+        file index,js
+promjene idu kroz faze:
+faza Stage
+faza Commit
+
+komanda
+git status - pokazuje ima li promjena:
+    (Untracked files: 
+    (use "git add <file>..." to include in what will be committed)        
+    index.js)
+
+komanda git add index.js - dodaje file u ono što će biti commit
+
+git status - vidimo da je spremno za commitanje (stage-ano je)
+    On branch master
+    No commits yet
+    Changes to be committed:
+      (use "git rm --cached <file>..." to unstage)
+        new file:   index.js
+
+commitanje:
+git commit -m "prvi commit"
+-m znači message
+    1 file changed, 1 insertion(+)
+
+git status - nema razlika između WD i trenutačnog SAVE-a (commita)
+    On branch master
+    nothing to commit, working tree clean
+
+git status? modified - ukoliko je nešto modificirano, anije stageano
+git status usšoređuje WD i što git zadnje prati (git prati ako kažemo git add)
+git add . - naredba paziti dodaje sve promjene iz svih foldera
+git status
+git commit -m "drugi commit" 
+
+Commitovi se spremaju zasebno i uvijek se može vratiti :
+naredba
+git log
+ili git log --reverse (reverse da se zadnji commit prikaže na vrhu liste)
+ili skraćeno git log --reverse --oneline
+izlazi se sa q
+
+git show 849fad9 - ne morao cijeli hash unijeti, sam opar prvih znakova
+
+vratiti se na ranije promjene:
+git reset --hard 1a57b7eea
+    HEAD is now at 1a57b7e prvi commit
+u fileu vidimo da smo vratili na prethodnu verzije (prvi commit)
+reset hard briše drugi commit !!! - što se sada vidi ako okinemo git log
+
+zato postoji git reverse - pogledati kak oradi...
+
+Provjeriti postavke gita: 
+git config --global --list
+user.name=ivanmla
+user.email=ivan0mlakic@gmail.com
+
+---
+Zadatak:
+unutar foldera 1_pred, napraviti folder vjezba_git_ivan_mlakic
+ući u folder, probati ls - ne bi se trebalo nalaziti ništa
+kreirati index.js file
+u taj file - otvoriti kako god - upisati console.log("zovem se ivan mlakic")
+git init
+git status
+
+git add . (or index.js)
+git commit -m "initaila commit"
+
+U VS codeu:
+kreirati index.html
+imjeniti naziv js filea u main
+
+Pogledati promjene u VS Codeu - gumb Source Control
+jednostavnije zbog GUIja, vide se lakše promjene
+
+plusom odabrati koji filovi idu u commit
+nakon akcije message i commit u VC cosu, u terminalu provjeriti 
+git log - vidimo da je commitano
+
+izmjena u htmlu - povezivanje html sa script - vidimo broj izmjena na ikoni Source Control
+možemo kliknuti na file . vizualno vidjeti promjene
+
+CTRL + C za izlazak ako nešto zapne
+
+-----
+U Terminalu VS Coda možemo mijenjati terminakl type bash, powershwll... možemo postaviti bash da bude defaultni
+
+-----
+2. dio git hub web
+Create new repository
+repo name: vjezba_git_ivan_mlakic
+description opcionalni
+NEMOJ readme
+Kada smo kreiralo repo, imamo dvije opcije:
+- u taj kreirani repo (remote) ubaciti svoj projekt
+- clonirati remote repo sebi lokalno u računalo
+
+Želimo povezati projekt u repo:
+u Code -> 
+trebamo SSH (https je zastarjeli način)
+SSH -> kopiramo value i dodamo u naredbu
+git remote add origin git@github.com:ivanmla/vjezba_git_ivan_mlakic.git
+
+git remote -v - vidimo na koji remote repo smo povezaani
+
+razlika između master i main ??
+prebaciti se u main:
+googlati git change master to main:
+git branch -m master main
+
+git push - može ovako ukratko jer je samo jedna grana i u originu i lokalno, ali kad imamo više:
+git push origin main - u origin, u njegovu granu main (lokalno je git pozicioniran i main)
+
+git remote rm origin - remova (odspaja) origin od lokalnog
+
+cd ~ - umjest cd .. puta xy
+.nesto fileovi se ne vide ako koristimo naredbu ls
+ali vide se ako ukucamo ls-lah
+(trsžimo .ssh folder, SSH koji trebamo za git hub)
+cd .ssh
+ls
+prikazuje ključeve, a ima  i config file - u configu su razni accounti ako ih ima više
+
+$ git push origin main javlja grešku:
+The authenticity of host 'github.com (140.82.121.4)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.        
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+
+naš privatni ključ je na kompu (uz javni naravno ) kreiran
+na stranici na gitu ćemo zaljepiti javni ključ (public key)
+git hub će prepoznati da je naš hardver po ključu autoriziran - bolje od username i passa
+
+Kako kreirati SSH ključeve:
+github profile settings -> SSH and GPG keys -> Check out our guide to generating SSH keys...
+pratiti upute
+$ ssh-keygen -t ed25519 -C "ivan0mlakic@gmail.com"
+Your identification has been saved in /c/Users/ivanm/.ssh/id_ed25519
+Your public key has been saved in /c/Users/ivanm/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:O8lEZPro0SMGnRn6ONUIU6ovCu4BC/Hb5J9WXm02HNA ivan0mlakic@gmail.com
+
+public key se može pogledati sa:
+cat id_ed25519.pub
+i njega se kopira u github pod SSH Keys -> add new 
+pod titlese obično stavi ime mašine npr laptpop hp probook
+
+rezultat: 
+
+git push origin main
+    Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+-------
+GRANANJE - BRANCH-EVI
+novi folder kolega git
+kolega može (ili bilo tko) otići na repo, kopirati ssh link
+i okinuti git clone:
+git clone git@github.com:ivanmla/vjezba_git_ivan_mlakic.git
+i u drugom code vieweru raditi oizmjene:
+napraviti promjenu imena i js filu, stage, commit, push
+vidljivo na webu gitu na remotu
+
+na prvotnom VS kodu (matej)
+git pull - ukratko ili 
+git pull origin main - za svaki sluačj 
